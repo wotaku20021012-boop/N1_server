@@ -1,0 +1,122 @@
+{
+  "Cosmetics": [
+    {
+      "Id": 1,
+      "Name": "\u4FDD\u6E7F\u30AF\u30EA\u30FC\u30E0A",
+      "Brand": "BrandA",
+      "Price": 3200,
+      "Tags": [
+        "\u4E7E\u71E5",
+        "\u30CA\u30A4\u30C8"
+      ]
+    },
+    {
+      "Id": 2,
+      "Name": "\u30B8\u30A7\u30EBB",
+      "Brand": "BrandB",
+      "Price": 1800,
+      "Tags": [
+        "\u8102\u6027",
+        "\u3055\u3063\u3071\u308A"
+      ]
+    },
+    {
+      "Id": 3,
+      "Name": "\u5316\u7CA7\u6C34C",
+      "Brand": "BrandC",
+      "Price": 2500,
+      "Tags": [
+        "\u654F\u611F",
+        "\u4F4E\u523A\u6FC0"
+      ]
+    }
+  ],
+  "Questions": [
+    {
+      "Id": 1,
+      "Text": "\u808C\u60A9\u307F\u306F\uFF1F"
+    },
+    {
+      "Id": 2,
+      "Text": "\u4ED5\u4E0A\u304C\u308A\u306F\uFF1F"
+    },
+    {
+      "Id": 3,
+      "Text": "\u4E88\u7B97\u306F\uFF1F"
+    }
+  ],
+  "Options": [
+    {
+      "Id": 1,
+      "QuestionId": 1,
+      "Text": "\u4E7E\u71E5"
+    },
+    {
+      "Id": 2,
+      "QuestionId": 1,
+      "Text": "\u8102\u6027"
+    },
+    {
+      "Id": 3,
+      "QuestionId": 1,
+      "Text": "\u654F\u611F"
+    },
+    {
+      "Id": 4,
+      "QuestionId": 2,
+      "Text": "\u30C4\u30E4"
+    },
+    {
+      "Id": 5,
+      "QuestionId": 2,
+      "Text": "\u30DE\u30C3\u30C8"
+    },
+    {
+      "Id": 6,
+      "QuestionId": 3,
+      "Text": "~2000"
+    },
+    {
+      "Id": 7,
+      "QuestionId": 3,
+      "Text": "~5000"
+    }
+  ],
+  "Flows": [
+    {
+      "QuestionId": 1,
+      "OptionId": 1,
+      "NextQuestionId": 2
+    },
+    {
+      "QuestionId": 1,
+      "OptionId": 2,
+      "NextQuestionId": 2
+    },
+    {
+      "QuestionId": 1,
+      "OptionId": 3,
+      "NextQuestionId": 3
+    },
+    {
+      "QuestionId": 2,
+      "OptionId": 4,
+      "NextQuestionId": 3
+    },
+    {
+      "QuestionId": 2,
+      "OptionId": 5,
+      "NextQuestionId": 3
+    },
+    {
+      "QuestionId": 3,
+      "OptionId": 6,
+      "NextQuestionId": null
+    },
+    {
+      "QuestionId": 3,
+      "OptionId": 7,
+      "NextQuestionId": null
+    }
+  ]
+}
