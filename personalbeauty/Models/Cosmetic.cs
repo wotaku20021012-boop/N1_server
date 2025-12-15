@@ -8,5 +8,7 @@
         public string Problem { get; set; } = "";
         public List<string> Tags { get; set; } = new();
         public int Price { get; set; }
+
+        public string ImageUrl { get; set; } = "";
     }
 }

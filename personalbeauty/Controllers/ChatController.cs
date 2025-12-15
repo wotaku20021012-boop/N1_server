@@ -45,16 +45,23 @@ namespace personalbeauty.Controllers
             });
 
             // ▼ 最終結果 → 商品検索
+            // if (flow.NextQuestionId == null)
+            // {
+            //    var selected = _repo.Options.First(o => o.Id == optionId);
+
+             //  var matches = _repo.Cosmetics
+              //      .Where(c => c.Tags.Any(t => selected.Text.Contains(t)))
+                //    .Take(3)
+                  //  .ToList();
+
+              //  return Ok(new { result = matches });
+            // }
             if (flow.NextQuestionId == null)
             {
-                var selected = _repo.Options.First(o => o.Id == optionId);
-
-                var matches = _repo.Cosmetics
-                    .Where(c => c.Tags.Any(t => selected.Text.Contains(t)))
-                    .Take(3)
-                    .ToList();
-
-                return Ok(new { result = matches });
+                return Ok(new
+                {
+                    result = _repo.Cosmetics
+                });
             }
 
             return Ok(new { nextQuestionId = flow.NextQuestionId });

@@ -27,55 +27,71 @@ namespace personalbeauty.Services
             // ▼ 質問データ
             Questions = new()
             {
-                new Question { Id = 1, Text = "肌の悩みはどれですか？" },
-                new Question { Id = 2, Text = "どの仕上がりが好みですか？" }
+                new Question { Id = 1, Text = "ほしいのは？" },
+                new Question { Id = 2, Text = "ほしいのは？" },
+                new Question { Id = 3, Text = "ほしいタイプは？" },
+                new Question { Id = 4, Text = "理想の仕上がりは？" },
+                new Question { Id = 5, Text = "近い肌の色は？" },
+                new Question { Id = 6, Text = "希望の価格帯は？" },
             };
 
             // ▼ 選択肢データ
             Options = new()
             {
-                new OptionItem { Id = 1, QuestionId = 1, Text = "乾燥" },
-                new OptionItem { Id = 2, QuestionId = 1, Text = "ニキビ" },
-                new OptionItem { Id = 3, QuestionId = 2, Text = "ツヤ肌" },
-                new OptionItem { Id = 4, QuestionId = 2, Text = "マット肌" }
+            	// ID=1の選択肢
+                new OptionItem { Id = 1, QuestionId = 1, Text = "メイク用道具" },
+                new OptionItem { Id = 2, QuestionId = 1, Text = "ベースメイク用コスメ" },
+                new OptionItem { Id = 3, QuestionId = 1, Text = "ポイントメイク用コスメ" },
+                
+                // ID=2の選択肢
+                new OptionItem { Id = 4, QuestionId = 2, Text = "スキンケア" },
+                new OptionItem { Id = 5, QuestionId = 2, Text = "化粧下地" },
+                new OptionItem { Id = 6, QuestionId = 2, Text = "ファンデーション" },
+                new OptionItem { Id = 7, QuestionId = 2, Text = "コンシーラー" },
+                new OptionItem { Id = 8, QuestionId = 2, Text = "フェイスパウダー" },
+                
+                // ID=3の選択肢
+                new OptionItem { Id = 9, QuestionId = 3, Text = "パウダー" },
+                new OptionItem { Id = 10, QuestionId = 3, Text = "リキッド" },
+                new OptionItem { Id = 11, QuestionId = 3, Text = "クッション" },
+                
+                // ID=4の選択肢
+                new OptionItem { Id = 12, QuestionId = 4, Text = "マット" },
+                new OptionItem { Id = 13, QuestionId = 4, Text = "セミマット" },
+                new OptionItem { Id = 14, QuestionId = 4, Text = "ツヤ" },
+                
+                // ID=5の選択肢
+                new OptionItem { Id = 15, QuestionId = 5, Text = "肌の色が明るめでピンクみがかかっている" },
+                new OptionItem { Id = 16, QuestionId = 5, Text = "肌の色が明るめで黄みがかかっている" },
+                new OptionItem { Id = 17, QuestionId = 5, Text = "肌の色が暗めでピンクみがかかっている" },
+                new OptionItem { Id = 18, QuestionId = 5, Text = "肌の色が暗めで黄みがかかっている" },
+                
+                // ID=6の選択肢
+                new OptionItem { Id = 19, QuestionId = 6, Text = "～1,500円" },
+                new OptionItem { Id = 20, QuestionId = 6, Text = "1,500円～" },
+
+
             };
 
             // ▼ チャット遷移フロー
             Flows = new()
             {
-                new FlowItem { QuestionId = 1, OptionId = 1, NextQuestionId = 2 },
                 new FlowItem { QuestionId = 1, OptionId = 2, NextQuestionId = 2 },
+                new FlowItem { QuestionId = 2, OptionId = 6, NextQuestionId = 3 },
+                new FlowItem { QuestionId = 3, OptionId = 9, NextQuestionId = 4 },
+                new FlowItem { QuestionId = 4, OptionId = 12, NextQuestionId = 5 },
+                new FlowItem { QuestionId = 5, OptionId = 15, NextQuestionId = 6 },
 
                 // ここで最終結果
-                new FlowItem { QuestionId = 2, OptionId = 3, NextQuestionId = null },
-                new FlowItem { QuestionId = 2, OptionId = 4, NextQuestionId = null },
+                new FlowItem { QuestionId = 6, OptionId = 19, NextQuestionId = null },
             };
 
             // ▼ 商品（化粧品）データ
             Cosmetics = new()
-{
-    new Cosmetic { Id = 1, Name = "高保湿クリームEX", Price = 1800, Tags = new() { "乾燥", "保湿", "ツヤ" }},
-    new Cosmetic { Id = 2, Name = "薬用ニキビケアジェル", Price = 1200, Tags = new() { "ニキビ", "脂性肌" }},
-    new Cosmetic { Id = 3, Name = "マット仕上げ美容液", Price = 2500, Tags = new() { "マット", "テカリ防止" }},
-    new Cosmetic { Id = 4, Name = "敏感肌用保湿ローション", Price = 1600, Tags = new() { "敏感肌", "低刺激", "乾燥" }},
-    new Cosmetic { Id = 5, Name = "美白ブライトニングセラム", Price = 2900, Tags = new() { "美白", "くすみ", "シミ" }},
-    new Cosmetic { Id = 6, Name = "皮脂コントロール化粧水", Price = 1500, Tags = new() { "脂性肌", "テカリ防止" }},
-    new Cosmetic { Id = 7, Name = "ツヤ肌ファンデーション", Price = 2200, Tags = new() { "ツヤ", "乾燥" }},
-    new Cosmetic { Id = 8, Name = "マットクッションファンデ", Price = 2600, Tags = new() { "マット", "皮脂吸着" }},
-    new Cosmetic { Id = 9, Name = "敏感肌用クレンジングミルク", Price = 1400, Tags = new() { "敏感肌", "低刺激" }},
-    new Cosmetic { Id = 10, Name = "角質クリア美容液", Price = 1800, Tags = new() { "毛穴", "角質", "くすみ" }},
-    new Cosmetic { Id = 11, Name = "しっとり化粧水 プレミアム", Price = 1700, Tags = new() { "乾燥", "保湿" }},
-    new Cosmetic { Id = 12, Name = "皮脂崩れ防止下地", Price = 1200, Tags = new() { "マット", "テカリ防止", "脂性肌" }},
-    new Cosmetic { Id = 13, Name = "ツヤ出し下地グロウ", Price = 1400, Tags = new() { "ツヤ", "うるおい" }},
-    new Cosmetic { Id = 14, Name = "美白UVエッセンス SPF50", Price = 2000, Tags = new() { "美白", "日焼け止め" }},
-    new Cosmetic { Id = 15, Name = "オイルフリー美容液", Price = 2300, Tags = new() { "脂性肌", "ニキビ" }},
-    new Cosmetic { Id = 16, Name = "しっとりクリームファンデ", Price = 2500, Tags = new() { "乾燥", "ツヤ" }},
-    new Cosmetic { Id = 17, Name = "毛穴ぼかしプライマー", Price = 1900, Tags = new() { "毛穴", "テカリ防止" }},
-    new Cosmetic { Id = 18, Name = "敏感肌用UVミルク", Price = 1600, Tags = new() { "敏感肌", "日焼け止め" }},
-    new Cosmetic { Id = 19, Name = "透明感アップ美容液", Price = 2800, Tags = new() { "くすみ", "美白" }},
-    new Cosmetic { Id = 20, Name = "皮脂吸着パウダー", Price = 1300, Tags = new() { "マット", "皮脂吸着" }},
-};
+            {
+                new Cosmetic { Id = 1, Name = "キャンメイクマシュマロフィニッシュパウダー(MI)", Price = 1034, Tags = new() { "無香料", "肌に優しめ", "マット" },ImageUrl = "http://localhost:5215/images/cosmetics/canmake.png" },
 
+            };
         }
     }
 

@@ -36,6 +36,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseCors("DevCors");
+app.UseStaticFiles();
 app.UseHttpsRedirection();
 
 app.MapControllers();
